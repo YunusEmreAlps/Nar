@@ -1,12 +1,6 @@
-<!-- NAR -->
+<!-- NAR - Many Seeds, One System -->
 
-<p align="center">
-  <a href="docs/assets/nar-transparent-texted.png" target="_blank">
-    <picture>
-      <img src="docs/assets/nar-transparent-texted.png" alt="Nar Logo" align="center" />
-    </picture>
-  </a>
-</p>
+![Nar Logo](docs/assets/nar-transparent.png)
 
 # Nar
 
@@ -14,14 +8,9 @@ Welcome to the **Nar** project! It is a modern, lightweight, and opinionated mic
 
 ## Why "Nar"?
 
-**Nar** means "pomegranate" in Turkish. This symbolic choice represents our core philosophy:
+**Nar** means "pomegranate" in Turkish. This symbolic choice represents the idea of many small seeds (microservices) coming together to form a whole fruit (a complete application). Just as a pomegranate is made up of many individual seeds, Nar encourages the development of small, focused services that work together to create a robust and scalable system.
 
-- **🌱 Modularity** — Like pomegranate seeds, each component is self-contained yet part of a greater whole
-- **🚀 Growth Potential** — Every seed can flourish into a new application
-- **🛡️ Resilience** — Protected by a robust architectural shell
-- **⚡ Abundance** — Packed with features and possibilities
-
-Just as a pomegranate's tough exterior protects countless seeds within, Nar provides a solid foundation that can expand into scalable, distributed ecosystems.
+> **Note**: The project is still in its early stages, and we welcome contributions and feedback from the community to help shape its future direction.
 
 ---
 
@@ -36,7 +25,6 @@ Just as a pomegranate's tough exterior protects countless seeds within, Nar prov
     - [1. Prerequisites](#1-prerequisites)
     - [2. Installation](#2-installation)
     - [3. Project Setup](#3-project-setup)
-    - [4. Environment Variables](#4-environment-variables)
   - [Architecture](#architecture)
   - [Release Notes](#release-notes)
   - [Roadmap](#roadmap)
@@ -95,16 +83,6 @@ git clone <repository-url>
 
 - Open the project in your favorite IDE
 
-- **Note**: The project uses **Auto Save** settings for Visual Studio Code and IntelliJ IDEA. Make sure to enable the **Auto Save** settings for the IDEs.
-
-- **Visual Studio Code**:
-  - Go to File -> Preferences -> Settings
-  - Type **Auto Save** in the search bar and select **afterDelay** from the dropdown
-- **IntelliJ IDEA**:
-  - Go to File -> Settings -> Build, Execution, Deployment -> Compiler
-  - Check the box for **Build project automatically**
-  - Apply and OK
-
 ```bash
 # For Visual Studio Code
 code .
@@ -112,22 +90,6 @@ code .
 # For IntelliJ IDEA
 idea .
 ```
-
-- Install Lombok Plugin in IntelliJ IDEA (**If you are using Visual Studio Code, you can skip this step**)
-  - Open IntelliJ IDEA
-  - Go to File -> Settings -> Plugins
-  - Search for Lombok Plugin
-  - Install and Restart IntelliJ IDEA
-  - Enable Annotation Processing
-  - Go to File -> Settings -> Build, Execution, Deployment -> Compiler -> Annotation Processors
-  - Check the box for Enable annotation processing
-  - Apply and OK
-
-- Install Spotless Plugin in IntelliJ IDEA (**If you are using Visual Studio Code, you can skip this step**)
-  - Open IntelliJ IDEA
-  - Go to File -> Settings -> Plugins
-  - Search for Spotless Plugin
-  - Install and Restart IntelliJ IDEA
 
 ### 3. Project Setup
 
@@ -159,13 +121,13 @@ cd ../config-server && ./gradlew bootRun
 cd ../api-gateway && ./gradlew bootRun
 ```
 
-### 4. Environment Variables
+- After starting all the services, you can access the following URLs to verify that the services are running:
 
-The following environment variables can be customized as necessary:
-
-- **Discovery Server** (`discovery-server/src/main/resources/application.properties`):
-- **Configuration Server** (`config-server/src/main/resources/application.properties`):
-- **API Gateway** (`api-gateway/src/main/resources/application.properties`):
+```bash
+curl http://localhost:5858/actuator/health
+curl http://localhost:5859/actuator/health
+curl http://localhost:5860/actuator/health
+```
 
 ## Architecture
 
@@ -209,17 +171,13 @@ The project is structured in a layered architecture with the following layers:
 │   └── assets
 ```
 
-![Discovery Server Spring Initializr](docs/assets/discovery-server.png)
-![Configuration Server Spring Initializr](docs/assets/configuration-server.png)
-![API Gateway Spring Initializr](docs/assets/api-gateway.png)
-
 > **Note**: The above diagram is a simplified representation of the project structure. Each service (discovery-server, config-server, api-gateway) is a separate Spring Boot application with its own main class and resources. For more details, please refer to the [ARCHITECTURE.md](docs/ARCHITECTURE.md) document.
 
 ---
 
 ## Release Notes
 
-Please refer to the [RELEASE_NOTES.md](docs/RELEASE_NOTES.md) for the project release notes and changelog.
+Please refer to the [RELEASE_NOTES.md](docs/RELEASE_NOTES.md) for the release notes and changelog.
 
 ## Roadmap
 
@@ -239,8 +197,7 @@ Please read the [Security Policy](docs/SECURITY.md) before contributing to the p
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
-for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Contact
 
