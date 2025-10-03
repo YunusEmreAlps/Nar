@@ -1,9 +1,9 @@
 <!-- NAR -->
 
 <p align="center">
-  <a href="docs/assets/nar-texted.png" target="_blank">
+  <a href="docs/assets/nar-transparent-texted.png" target="_blank">
     <picture>
-      <img src="docs/assets/nar-texted.png" alt="Nar Logo" align="center" />
+      <img src="docs/assets/nar-transparent-texted.png" alt="Nar Logo" align="center" />
     </picture>
   </a>
 </p>
@@ -135,17 +135,28 @@ idea .
 - Run the project using the following command:
 
 ```bash
-# First, navigate to the service you want to run
-cd discovery-server
-# Then, run the service using Gradle
-./gradlew bootRun
+# For Windows
+./start-all.bat
 
-# Repeat the above steps for config-server and api-gateway
-cd ../config-server
-./gradlew bootRun
+# For Unix-based systems (Linux, macOS)
+chmod +x start-all.sh
+./start-all.sh
+```
 
-cd ../api-gateway
-./gradlew bootRun
+> **Note**: The above scripts will start all the services in the correct order with necessary delays. It will also check for port availability and health status of each service before starting the next one.
+> **Make sure to run the scripts in a terminal that supports bash (e.g., Git Bash, WSL, etc.) for Windows users.**
+
+- If you want to start each service individually, you can use the following commands:
+
+```bash
+# 1. Start Discovery Server first
+cd discovery-server && ./gradlew bootRun
+
+# 2. Wait 30 seconds, then start Config Server
+cd ../config-server && ./gradlew bootRun
+
+# 3. Wait 20 seconds, then start API Gateway  
+cd ../api-gateway && ./gradlew bootRun
 ```
 
 ### 4. Environment Variables
@@ -153,39 +164,8 @@ cd ../api-gateway
 The following environment variables can be customized as necessary:
 
 - **Discovery Server** (`discovery-server/src/main/resources/application.properties`):
-
-```bash
-spring.application.name=discovery-server
-server.port=5858
-eureka.client.registerWithEureka=false
-eureka.client.fetchRegistry=false
-eureka.client.serviceUrl.defaultZone=http://localhost:5858/eureka
-management.endpoints.web.exposure.include=*
-management.endpoint.health.show-details=always
-```
-
 - **Configuration Server** (`config-server/src/main/resources/application.properties`):
-
-```bash
-spring.application.name=config-server
-server.port=5859
-spring.profiles.active=native
-eureka.client.serviceUrl.defaultZone=http://localhost:5858/eureka
-management.endpoints.web.exposure.include=*
-management.endpoint.health.show-details=always
-```
-
 - **API Gateway** (`api-gateway/src/main/resources/application.properties`):
-
-```bash
-spring.application.name=api-gateway
-server.port=5860
-spring.profiles.active=native
-spring.config.import=optional:configserver:http://localhost:5859
-eureka.client.service-url.defaultZone=http://localhost:5858/eureka
-management.endpoints.web.exposure.include=*
-management.endpoint.health.show-details=always
-```
 
 ## Architecture
 
@@ -233,7 +213,7 @@ The project is structured in a layered architecture with the following layers:
 ![Configuration Server Spring Initializr](docs/assets/configuration-server.png)
 ![API Gateway Spring Initializr](docs/assets/api-gateway.png)
 
-Please refer to the [ARCHITECTURE.md](docs/ARCHITECTURE.md) for more details on the project architecture.
+> **Note**: The above diagram is a simplified representation of the project structure. Each service (discovery-server, config-server, api-gateway) is a separate Spring Boot application with its own main class and resources. For more details, please refer to the [ARCHITECTURE.md](docs/ARCHITECTURE.md) document.
 
 ---
 

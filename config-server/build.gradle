@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.nar'
 version = '0.0.1-SNAPSHOT'
-description = 'Configuration Server for Spring Cloud'
+description = 'Configuration Server for Nar Microservices Architecture'
 
 java {
 	toolchain {
@@ -23,12 +23,16 @@ ext {
 }
 
 dependencies {
+	// Core Config Server
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'org.springframework.cloud:spring-cloud-config-server'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    
+	// Actuator for monitoring
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
+	// Testing dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

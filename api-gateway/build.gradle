@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.nar'
 version = '0.0.1-SNAPSHOT'
-description = 'API Gateway Service using Netflix Zuul and Eureka Client'
+description = 'API Gateway for Nar Microservices Architecture'
 
 java {
 	toolchain {
@@ -23,9 +23,14 @@ ext {
 }
 
 dependencies {
+	// Core API Gateway
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    
+	// Actuator for monitoring
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	
+	// Testing dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
