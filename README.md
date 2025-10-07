@@ -29,9 +29,6 @@ Welcome to the **Nar** project! It is a modern, lightweight, and opinionated mic
   - [Release Notes](#release-notes)
   - [Roadmap](#roadmap)
   - [Development Workflow](#development-workflow)
-  - [Code of Conduct](#code-of-conduct)
-  - [Security Policy](#security-policy)
-  - [Contributing](#contributing)
   - [Contact](#contact)
 
 ## Built With
@@ -93,7 +90,12 @@ idea .
 
 ### 3. Project Setup
 
-- Open the project in your favorite IDE
+- Navigate to the project root directory
+
+```bash
+cd nar
+```
+
 - Run the project using the following command:
 
 ```bash
@@ -141,22 +143,20 @@ The project is structured in a layered architecture with the following layers:
 │   │   │   ├── java
 │   │   │   │   └── com
 │   │   │   │       └── nar
-│   │   │   │           ├── ApiGatewayApplication.java  # Main application class
+│   │   │   │           ├── ApiGatewayApplication.java      # Main application class
 │   │   │   ├── resources
-│   │   │   │   ├── application.properties              # Application properties
-│   │   │   │   └── bootstrap.properties                # Bootstrap properties
+│   │   │   │   ├── application.properties                  # Application properties
 ├── config-server
 │   ├── src
 │   │   ├── main
 │   │   │   ├── java
 │   │   │   │   └── com
 │   │   │   │       └── nar
-│   │   │   │           ├── ConfigServerApplication.java # Main application class
+│   │   │   │           ├── ConfigServerApplication.java    # Main application class
 │   │   │   ├── resources
 │   │   │   │   ├── config
 │   │   │   │   │   └── api-gateway.yml
-│   │   │   │   ├── application.properties               # Application properties
-│   │   │   │   └── bootstrap.properties                 # Bootstrap properties
+│   │   │   │   ├── application.properties                  # Application properties
 ├── discovery-server
 │   ├── src
 │   │   ├── main
@@ -165,39 +165,26 @@ The project is structured in a layered architecture with the following layers:
 │   │   │   │       └── nar
 │   │   │   │           ├── DiscoveryServerApplication.java # Main application class
 │   │   │   ├── resources
-│   │   │   │   ├── application.properties               # Application properties
-│   │   │   │   └── bootstrap.properties                 # Bootstrap properties
-├── docs                                                 # Holds project documentations. Markdown sections, etc.
+│   │   │   │   ├── application.properties                  # Application properties
+├── docs                                                    # Holds project documentations. Markdown sections, etc.
 │   └── assets
 ```
 
-> **Note**: The above diagram is a simplified representation of the project structure. Each service (discovery-server, config-server, api-gateway) is a separate Spring Boot application with its own main class and resources. For more details, please refer to the [ARCHITECTURE.md](docs/ARCHITECTURE.md) document.
+> **Note**: The above diagram is a simplified representation of the project structure. Each service (discovery-server, config-server, api-gateway) is a separate Spring Boot application with its own main class and resources. For more details, please refer to the [Architecture](docs/ARCHITECTURE.md) document.
 
 ---
 
 ## Release Notes
 
-Please refer to the [RELEASE_NOTES.md](docs/RELEASE_NOTES.md) for the release notes and changelog.
+Please refer to the [Release Notes](docs/RELEASE_NOTES.md) for the release notes and changelog.
 
 ## Roadmap
 
-Please refer to the [ROADMAP.md](docs/ROADMAP.md) for the project roadmap and future plans.
+Please refer to the [Roadmap](docs/ROADMAP.md) for the project roadmap and future plans.
 
 ## Development Workflow
 
 In the **Nar** project, we follow a structured development workflow to ensure efficient collaboration and code management. This workflow includes the following key components: branching strategy, versioning, and commit message conventions. By following these guidelines, we aim to maintain a clean and organized codebase that is easy to manage and contribute to. For more information, please refer to the [Development Workflow](docs/DEVELOPMENT_WORKFLOW.md) document.
-
-## Code of Conduct
-
-Please read the [Code of Conduct](docs/CODE_OF_CONDUCT.md) before contributing to the project.
-
-## Security Policy
-
-Please read the [Security Policy](docs/SECURITY.md) before contributing to the project.
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Contact
 
